@@ -1,0 +1,33 @@
+# Core dependencies for Attend-and-Excite
+# For more information, see pyproject.toml
+
+# Deep Learning frameworks
+torch>=1.12.0,<2.0.0
+torchvision>=0.12.0,<1.0.0
+
+# Diffusion models
+diffusers==0.21.4
+transformers==4.30.2
+accelerate==0.20.3
+huggingface_hub==0.16.4
+
+# Utilities
+ftfy>=6.0.0
+opencv-python>=4.5.0
+ipywidgets>=7.6.0
+matplotlib>=3.3.0
+pyrallis>=0.3.0
+numpy>=1.19.0,<1.24.0
+Pillow>=8.0.0
+einops>=0.3.0
+omegaconf>=2.1.0
+pytorch-lightning>=1.4.0,<2.0.0
+kornia>=0.6.0
+
+# Development tools (optional)
+# jupyter>=1.0.0
+# notebook>=6.4.0
+# ipykernel>=6.0.0
+
+# Metrics (optional)
+# lavis>=1.0.0

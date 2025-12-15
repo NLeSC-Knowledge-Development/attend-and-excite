@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "attend-and-excite"
+version = "1.0.0"
+description = "Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models"
+readme = "README.md"
+requires-python = ">=3.8,<3.13"
+license = {text = "MIT"}
+authors = [
+    {name = "Hila Chefer"},
+    {name = "Yuval Alaluf"},
+    {name = "Yael Vinker"},
+]
+keywords = ["diffusion", "stable-diffusion", "text-to-image", "attention", "deep-learning", "computer-vision"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "diffusers>=0.21.0,<0.32.0",
+    "transformers>=4.30.0",
+    "accelerate>=0.20.0",
+    "huggingface_hub>=0.16.0",
+    "ftfy>=6.0.0",
+    "opencv-python>=4.5.0",
+    "ipywidgets>=7.6.0",
+    "matplotlib>=3.3.0",
+    "pyrallis>=0.3.0",
+    "numpy>=1.19.0",
+    "Pillow>=8.0.0",
+    "einops>=0.3.0",
+    "omegaconf>=2.1.0",
+    "pytorch-lightning>=1.4.0",
+    "kornia>=0.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "notebook>=6.4.0",
+    "ipykernel>=6.0.0",
+]
+
+metrics = [
+    "lavis>=1.0.0",
+]
+
+taming = [
+    "albumentations>=0.4.3",
+    "imageio>=2.9.0",
+    "imageio-ffmpeg>=0.4.2",
+    "test-tube>=0.7.5",
+    "streamlit>=0.73.1",
+    "torch-fidelity>=0.3.0",
+    "torchmetrics>=0.6.0",
+    "invisible-watermark>=0.1.0",
+    "pudb>=2019.2",
+]
+
+all = [
+    "attend-and-excite[dev,metrics,taming]",
+]
+
+[project.urls]
+Homepage = "https://attendandexcite.github.io/Attend-and-Excite/"
+Repository = "https://github.com/yuval-alaluf/Attend-and-Excite"
+Paper = "https://arxiv.org/abs/2301.13826"
+
+[project.scripts]
+attend-and-excite = "run:main"
+
+[tool.setuptools]
+packages = ["attend_and_excite", "attend_and_excite.utils", "attend_and_excite.metrics"]
+
+[tool.setuptools.package-dir]
+"attend_and_excite" = "."
+"attend_and_excite.utils" = "utils"
+"attend_and_excite.metrics" = "metrics"
+
+[tool.setuptools.package-data]
+"attend_and_excite" = ["*.py"]
