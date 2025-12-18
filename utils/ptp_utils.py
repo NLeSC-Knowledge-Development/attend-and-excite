@@ -70,7 +70,11 @@ class AttendExciteCrossAttnProcessor:
 
     def __call__(self, attn: CrossAttention, hidden_states, encoder_hidden_states=None, attention_mask=None):
         batch_size, sequence_length, _ = hidden_states.shape
-        attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length)
+        # diffusers>=0.31 requires `batch_size` in prepare_attention_mask
+        try:
+            attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length, batch_size)
+        except TypeError:
+            attention_mask = attn.prepare_attention_mask(attention_mask, sequence_length)
 
         query = attn.to_q(hidden_states)
 
